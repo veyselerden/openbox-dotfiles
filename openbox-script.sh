@@ -10,8 +10,10 @@ echo "0. Git kuruluyor.."
 sudo apt install -y git
 
 echo "1. Depolar güncelleniyor (contrib non-free)..."
-sudo apt install -y software-properties-common
-sudo apt-add-repository contrib non-free -y
+sudo apt modernize-sources
+echo "Şimdi source list'i düzenle"
+sleep 3
+sudo nano /etc/apt/sources.list.d/debian.sources
 
 # 2. Trixie-Backports Deposunu Ekleme
 echo "2. Trixie-backports ekleniyor..."
@@ -25,7 +27,7 @@ fi
 echo "3. APT Preferences yapılandırılıyor..."
 sudo tee /etc/apt/preferences.d/backports-policy <<EOF
 Package: linux-*
-Pin: release n=trixie
+Pin: release n=trixie-backports
 Pin-Priority: -1
 
 Package: *
@@ -34,6 +36,7 @@ Pin-Priority: 900
 EOF
 
 sudo apt update
+sudo apt full-upgrade -y --auto-remove
 
 # 4. Extrepo Kurulumu ve XLibre Aktivasyonu
 echo "4. Extrepo üzerinden XLibre aktif ediliyor..."
