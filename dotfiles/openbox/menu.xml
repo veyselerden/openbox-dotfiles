@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+<menu id="root-menu" label="Openbox 3">
+  <item label="Çalıştır...">
+    <action name="Execute"><execute>gmrun</execute></action>
+  </item>
+  <item label="Librewolf">
+    <action name="Execute"><execute>librewolf</execute></action>
+  </item>
+  <item label="Terminal">
+    <action name="Execute"><execute>lxterminal</execute></action>
+  </item>
+  <item label="Dosya Yöneticisi">
+    <action name="Execute"><execute>pcmanfm</execute></action>
+  </item>
+  <!-- This requires the presence of the 'obamenu' package to work -->
+  <menu id="/Debian" />
+  <separator />
+  <menu id="applications-menu" label="Uygulamalar" execute="/usr/bin/obamenu"/>
+  <separator />
+  <item label="Openbox yeniden yükleme">
+    <action name="Restart" />
+  </item>
+  <separator />
+  <item label="Yeniden Başlat">
+    <action name="Execute">
+     <prompt>
+      Yeniden başlatmak istediğine emin misin?
+     </prompt>
+     <execute>
+      sudo reboot
+     </execute>
+    </action>
+   </item>
+  <item label="Kapat">
+    <action name="Execute">
+     <prompt>
+      Kapatmak istediğine emin misin?
+     </prompt>
+     <execute>
+      sudo poweroff
+     </execute>
+    </action>
+   </item>
+  <item label="Çıkış">
+    <action name="Exit" />
+  </item>
+
+</menu>
+
+</openbox_menu>
