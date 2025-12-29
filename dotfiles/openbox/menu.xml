@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+<menu id="root-menu" label="Openbox 3">
+  <item label="Çalıştır...">
+    <action name="Execute"><execute>gmrun</execute></action>
+  </item>
+  <item label="Firefox">
+    <action name="Execute"><execute>firefox</execute></action>
+  </item>
+  <item label="Terminal">
+    <action name="Execute"><execute>lxterminal</execute></action>
+  </item>
+  <item label="Dosya Yöneticisi">
+    <action name="Execute"><execute>pcmanfm</execute></action>
+  </item>
+  <!-- This requires the presence of the 'obamenu' package to work -->
+  <menu id="/Debian" />
+  <separator />
+  <menu id="applications-menu" label="Uygulamalar" execute="/home/veysel/.config/openbox/my-menu.sh"/>
+  <separator />
+  <item label="Panel Ayarları">
+    <action name="Execute"><execute>tint2conf</execute></action>
+  </item>
+  <item label="Yenile">
+    <action name="Restart" />
+  </item>
+  <separator />
+  <item label="Çıkış">
+    <action name="Exit" />
+  </item>
+  <item label="Yeniden Başlat">
+    <action name="Execute">
+     <prompt>
+      Yeniden başlatmak istediğine emin misin?
+     </prompt>
+     <execute>
+      systemctl reboot
+     </execute>
+    </action>
+   </item>
+  <item label="Kapat">
+    <action name="Execute">
+     <prompt>
+      Kapatmak istediğine emin misin?
+     </prompt>
+     <execute>
+      systemctl poweroff
+     </execute>
+    </action>
+   </item>
+
+
+</menu>
+
+</openbox_menu>
